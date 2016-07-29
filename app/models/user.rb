@@ -7,6 +7,6 @@ class User < ActiveRecord::Base
                     uniqueness: { case_sensitive: false }
    validates :age, numericality: {only_integer: true, greater_than: 0, less_than_or_equal_to: 130}, on: :update
    validates :profile, presence: true, length: { minimum: 2, maximum: 145 }, on: :update
-   validates :latitude, numericality: { greater_than_or_equal_to: -90,  less_than_or_equal_to: 90 }, on: :update
+  # validates :latitude, numericality: { greater_than_or_equal_to: -90,  less_than_or_equal_to: 90 }, on: :update
   has_secure_password
 end
