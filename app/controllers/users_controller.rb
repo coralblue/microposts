@@ -28,7 +28,7 @@ def update
   
   if @user.update(user_params)
     # 保存に成功した場合はユーザーページへリダイレクト
-    redirect_to @user, notice: 'ユーザー情報を編集しました'
+    redirect_to @user, notice: 'ユーザー情報をアップデートしました'
   else
     # 保存に失敗した場合は編集画面へ戻す
     render 'edit'
@@ -44,22 +44,7 @@ private
 
 
   def user_params
-    params.require(:user).permit(:name, :email, :age, :profile,:latitude,
+    params.require(:user).permit(:name, :email, :age, :profile,:location,
                                  :password, :password_confirmation)
   end
 end
-
-# =====
-# def edit
-#   end
-  
-#   def update
-#     if @message.update(message_params)
-#       # 保存に成功した場合はトップページへリダイレクト
-#       redirect_to root_path , notice: 'メッセージを編集しました'
-#     else
-#       # 保存に失敗した場合は編集画面へ戻す
-#       render 'edit'
-#     end
-#   end
-#       ===========

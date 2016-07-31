@@ -14,14 +14,17 @@
       <%= f.label :age %>
       <%= f.text_field :age, class: 'form-control' %>
       
+      <%= f.label :location %>
+      <%= f.text_field :location, class: 'form-control', placeholder: '7文字以上50文字以下の入力が可能です' %>
+      
       <!--<%#= f.label :latitude %>-->
       <!--<%#= f.text_field :latitude %>-->
       
       <%= f.label :profile %>
-      <%= f.text_area :profile, class: 'form-control' %>
+      <%= f.text_area :profile, class: 'form-control', placeholder: '15文字以上145文字以下の入力が可能です' %>
       
       <%= f.label :password %>
-      <%= f.password_field :password, class: 'form-control's %>
+      <%= f.password_field :password, class: 'form-control' %>
 
       <%= f.label :password_confirmation, "Confirmation" %>
       <%= f.password_field :password_confirmation %>
