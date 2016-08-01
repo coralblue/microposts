@@ -35,7 +35,16 @@ def update
     render 'edit'
   end
 end
+def followings
+   @user  = User.find(params[:id])      #必要な処理を記述
+   @followings = @user.following_users  
+ end
 
+ def followers 
+   @user  = User.find(params[:id])      #必要な処理を記述
+   @followers = @user.follower_users
+ end
+ 
 private
 
   def correct_user

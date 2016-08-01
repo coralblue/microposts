@@ -19,6 +19,8 @@
 <!--        <#% end %>-->
       </ol>
       <% end %>
+<%= link_to 'Followings', followings_user_path(@user) %>
+<%= link_to 'Followers', followers_user_path(@user) %>
       </div>
       </div>
 
@@ -28,3 +30,4 @@
 <!--  <#%= @user.location %><br>-->
 <!--  <#%= @user.profile %><br>-->
 <!--</h1>-->
+
