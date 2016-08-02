@@ -1,8 +1,11 @@
 <%= link_to 'Followers', followers_user_path(@user) %> 
-
+<%= link_to 'Followings', followings_user_path(@user) %>
 <% @followers.each do |user| %><br>
   <%= gravatar_for(user, size: 50) %><br>
   <%= user.name %><br>
+    <%= user.profile %><br>  
+  <!--<#%= Micropost.where(user_id: following_user_ids + [self.id]) %><br>-->
+  
   <!--<#%= user.follower_users %><br>-->
 
   <!--<span class="content"><#%= micropost.content %></span>-->

@@ -3,10 +3,12 @@
 <% @followings.each do |user| %><br>
   <%= gravatar_for(user, size: 50) %><br>
   <%= user.name %><br>
-  
+  <%= user.profile %><br>  
     <!--<span class="content"><#%= micropost.content %></span>-->
     
     <!--<span class="timestamp">-->
     <!--Posted <#%= time_ago_in_words(micropost.created_at) %> ago.-->
 
+
 <% end %>
+<%= link_to 'Followers', followers_user_path(@user) %> 
