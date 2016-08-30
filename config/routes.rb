@@ -16,6 +16,7 @@ end
   # resources :users
   resources :microposts
   resources :relationships, only: [:create, :destroy]
+  resources :user_favorite_microposts, only: [:create, :destroy]
 end
 
 

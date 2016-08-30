@@ -24,8 +24,8 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
   end
   
-def update
-  @user = User.find(params[:id])
+  def update
+     @user = User.find(params[:id])
   
   if @user.update(user_params)
     # 保存に成功した場合はユーザーページへリダイレクト
@@ -34,8 +34,9 @@ def update
     # 保存に失敗した場合は編集画面へ戻す
     render 'edit'
   end
-end
-def followings
+  end
+
+ def followings
    @user  = User.find(params[:id])      #必要な処理を記述
    @followings = @user.following_users  
  end
@@ -54,7 +55,8 @@ private
 
 
   def user_params
-    params.require(:user).permit(:name, :email, :age, :profile,:location,
+    params.require(:user).permit(:name, :email, :age, :profile,:location, :avatar,
                                  :password, :password_confirmation)
   end
+
 end

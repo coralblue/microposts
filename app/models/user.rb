@@ -1,4 +1,6 @@
 class User < ActiveRecord::Base
+    mount_uploader :avatar, AvatarUploader
+
   before_save { self.email = self.email.downcase }
   validates :name, presence: true, length: { maximum: 20 }
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
@@ -28,6 +30,25 @@ has_many :follower_users, through: :follower_relationships, source: :follower
   def follow(other_user)
     following_relationships.find_or_create_by(followed_id: other_user.id)
   end
+
+# has_many :user_favorite_microposts
+# has_many :favorite_microposts, through: :user_favorite_microposts, source: :micropost
+
+
+# お気に入りツイート追加
+# def add_favorite(micropost)
+#   user_favorite_microposts.create(micropost_id: micropost.id)
+# end
+
+def add_favorite(micropost)
+  user_favorite_microposts.find_or_create_by(micropost_id: micropost.id)
+end
+
+# お気に入りツイート削除
+def remove_favorite(micropost)
+  user_favorite_micropost = user_favorite_microposts.find_by(micropost_id: micropost.id)
+  user_favorite_micropost.destroy if user_favorite_micropost.present?
+end
 
   # フォローしているユーザーをアンフォローする
   def unfollow(other_user)
